@@ -75,14 +75,14 @@ export default function NavBar() {
           </div>
           <Link
             href="#responsive-header"
-            className="block mt-8 text-slate-200 hover:text-white mr-4"
+            className="block mt-8 text-slate-200 hover:text-white"
             to={"/"}
           >
             Home
           </Link>
           <Link
             href="#responsive-header"
-            className="block mt-8 text-slate-200 hover:text-white mr-4"
+            className="block mt-8 text-slate-200 hover:text-white"
             to={"/add"}
           >
             Add

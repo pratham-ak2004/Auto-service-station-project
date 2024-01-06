@@ -1,16 +1,18 @@
 import "./App.css";
 import Home from "./components/home/Home";
 import NavBar from "./components/navbar/NavBar";
-import { BrowserRouter , Route , Routes} from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <NavBar />
-        <Routes>
-        <Route exact path="/" element={<Home/>}></Route>
-</Routes>
+        <div className="w-auto ml-6 mr-6 flex justify-center">
+          <Routes>
+            <Route exact path="/" element={<Home />}></Route>
+          </Routes>
+        </div>
         {/* <nav className="flex items-center justify-between flex-wrap bg-lime-700 p-6">
         <div className="flex items-center flex-shrink-0 text-white mr-6">
           <span className="font-semibold text-xl tracking-tight">
