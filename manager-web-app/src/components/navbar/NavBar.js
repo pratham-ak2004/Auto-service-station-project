@@ -3,15 +3,17 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function NavBar() {
-    const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
       <nav className="flex items-center justify-between flex-wrap bg-lime-700 p-6">
         <div className="flex items-center flex-shrink-0 text-white mr-8">
-          <span className="font-semibold text-xl tracking-tight">
-            Auto Service Station
-          </span>
+          <Link to={"/"}>
+            <span className="font-semibold text-xl tracking-tight">
+              Auto Service Station
+            </span>
+          </Link>
         </div>
         <div className="block lg:hidden">
           <button
