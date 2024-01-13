@@ -23,7 +23,7 @@ if gpus:
         print(e)
 
 ## Load model and reader
-model = tf.saved_model.load('./models/plate_detector/export/saved_model')
+model = tf.saved_model.load('./model/plate_detector/export/saved_model')
 print("Model loaded")
 reader = easyocr.Reader(['en'], gpu=True)
 print("Reader loaded")
@@ -49,9 +49,9 @@ def get_results(image,classes,boxes,scores):
             ## Get the OCR result
             ocr_result = reader.readtext(cropped_image, paragraph=True ,allowlist="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",text_threshold=0.7)
             required_result = ocr_result[0][-1]
-            print("Obtained Reesult : " , required_result)
+            ## print("Obtained Reesult : " , required_result)
 
-            result.append([box,required_result])
+            result.append([boxes[i],scores[i],required_result])
             
     return result
 
@@ -67,11 +67,13 @@ def hello_world():
 
 ## Detect from image route
 @app.route('/detect' , methods=['POST'])
+## @app.route('/detect')
 def detect_image():
     
     ## Get the image
     image_data = request.get_data()
     img = stringToRGB(image_data)
+    ## img = cv2.imread('./Cars432.png')
     
     ## Convert to tensor
     img = np.array(img, dtype=np.uint8)
@@ -95,6 +97,7 @@ def detect_image():
 
 ## Main function
 if __name__ == '__main__':
-    app.run(host="localhost", port=8000)
+    ## ssl_context=('./cert.pem', './key.pem')
+    app.run(host='localhost',port=8000)
     
     ## End of Program
