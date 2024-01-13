@@ -1,4 +1,3 @@
-import "./App.css";
 import Home from "./components/home/Home";
 import NavBar from "./components/navbar/NavBar";
 import AddData from "./components/addData/AddData";
@@ -12,7 +11,7 @@ function App() {
         <div className="w-auto ml-6 mr-6 flex justify-center">
           <Routes>
             <Route exact path="/" element={<Home />}></Route>
-            <Route exact path="/add" element={<AddData/>}></Route>
+            <Route exact path="/add" element={<AddData />}></Route>
           </Routes>
         </div>
       </BrowserRouter>
